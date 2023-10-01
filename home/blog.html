@@ -1,0 +1,107 @@
+
+<!DOCTYPE html><html lang="en" class="no-transition"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index">
+<meta name="theme-color" content="#0062ff">
+<title>OddMock — Announcement</title>
+<meta property="og:title" content="OddMock - Update">
+<meta property="og:url" content="https://oddmock.com/kap/blog.html#">
+<meta name="twitter:site" content="@oddmock">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="OddMock Announcement">
+<meta property="og:description" content="tags">
+<meta name="twitter:description" content="tags">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://static.abdessalam.dev/9bb588b937814fa2ae7367c7f0eec8a5/site-card.jpg">
+<meta name="twitter:image" content="https://static.abdessalam.dev/9bb588b937814fa2ae7367c7f0eec8a5/site-card.jpg">
+<link rel="preload" href="https://abdessalam.dev/static/Inter.d96b9e3cfc.woff" as="font" type="font/woff" crossorigin="anonymous">
+<link rel="preload" href="https://abdessalam.dev/dist/assets/fonts/HeadingBold.woff" as="font" type="font/woff" crossorigin="anonymous">
+<link rel="preload" href="https://abdessalam.dev/static/CodeMono.504f3d86ba.woff" as="font" type="font/woff" crossorigin="anonymous">
+<link rel="preload" href="https://abdessalam.dev/static/code.min.85eb978ece.css" as="style">
+<link href="https://abdessalam.dev/static/code.min.85eb978ece.css" rel="stylesheet">
+<link rel="preload" href="https://abdessalam.dev/static/app.min.fe6529b4dc.css" as="style">
+<link href="https://abdessalam.dev/static/app.min.fe6529b4dc.css" rel="stylesheet">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" href="https://oddmock.com/kap/favicon.ico" type="image/x-icon">
+<script async="" defer="" src="https://hive.abdessalam.dev/sb.js"></script>
+</head>
+<body class="single">
+<div id="app">
+<main class="main">
+<div class="breadcrumb">
+<a href="https://abdessalam.dev" class="breadcrumb__item">Home</a>
+<span class="breadcrumb__separator">/</span>
+<a href="https://abdessalam.dev/blog/" class="breadcrumb__item">Blog</a>
+<span class="breadcrumb__separator">/</span>
+<span class="breadcrumb__item breadcrumb__item--active">O</span>
+</div>
+<article class="post post--single">
+<header class="post__header">
+<h1 class="post__title">placeholder</h1>
+<div class="post__meta">
+<time>
+February 4, 2021
+</time>
+</div>
+</header>
+<div class="post__content">
+<p>I have recently had to create an interactive menu for a project. I started programming it in bash and to tell the truth I quickly felt limited when I wanted to handle more complex cases and especially that I had to add more code from scratch. As the project is built in JavaScript, I told myself that there was probably a package that can do all what I want. After some research, I found it! The package is <a href="https://www.npmjs.com/package/inquirer">Inquirer.js</a>. It’s a collection of common interactive command line user interfaces.</p>
+<p>Here is a simple example with a list of choices</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// assuming that `inquirer` has already been installed
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">inquirer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"inquirer"</span><span class="p">);</span>
+
+<span class="nx">inquirer</span>
+  <span class="p">.</span><span class="nx">prompt</span><span class="p">([</span>
+    <span class="p">{</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="s2">"list"</span><span class="p">,</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s2">"prize"</span><span class="p">,</span>
+      <span class="nx">message</span><span class="o">:</span> <span class="s2">"Select a prize"</span><span class="p">,</span>
+      <span class="nx">choices</span><span class="o">:</span> <span class="p">[</span><span class="s2">"cake"</span><span class="p">,</span> <span class="s2">"fries"</span><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">])</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">answers</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> 
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">answers</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">"  "</span><span class="p">));</span>
+  <span class="p">});</span>
+</code></pre></div><p>What happens if we execute this code? Let’s see!</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">? Select a prize <span class="o">(</span>Use arrow keys<span class="o">)</span>
+❯ cake 
+  fries 
+
+<span class="c1"># if we select cake</span>
+<span class="c1"># {</span>
+<span class="c1">#  "prize": "cake"</span>
+<span class="c1"># }</span>
+</code></pre></div><p>It doesn’t stop there, as it can handle multiple and different types of prompts. I highly recommend you to take a look on the project and the given examples <a href="https://github.com/SBoudrias/Inquirer.js/tree/master/packages/inquirer/examples">https://github.com/SBoudrias/Inquirer.js/tree/master/packages/inquirer/examples</a></p>
+<p>I hope it will be useful in your projects too!</p>
+<p>Before you leave…<br>
+Thanks for reading!&nbsp;<span class="emoji">😊</span></p>
+<div class="further-reading">
+<h3>Read more</h3>
+<ul>
+<li><a href="https://abdessalam.dev/blog/password-protect-access-netlify-github-actions/">Password protect a Netlify site through GitHub Actions</a></li>
+<li><a href="https://abdessalam.dev/blog/rename-git-branch/">Rename a git branch locally and remotely</a></li>
+<li><a href="https://abdessalam.dev/blog/get-form-fields-javascript/">Get form fields as a JSON Object in JavaScript</a></li>
+</ul>
+</div>
+</div>
+</article>
+</main>
+<footer class="footer">
+<div class="container">
+<div>
+<span>© 2022</span>
+</div>
+<div>
+<span>OddMock
+<span class="separator"> — </span>
+<span id="location-time">00:00 AM</span>
+</span>
+</div>
+</div>
+</footer>
+</div>
+<script>!function(e){var n,a=e.document,l=e.location.hostname,t=a.getElementById("location-time"),e=a.querySelectorAll("a");function o(){var e=a.querySelectorAll("img.lazyload"),e=[].slice.call(e),t=n.pageYOffset;e.forEach(function(e){"lazyloaded"!==e.className&&"lazyloading"!==e.className&&(e.offsetTop<n.innerHeight+t&&(e.src=e.dataset.src),"lazyload"===e.className&&(e.classList.remove("lazyload"),e.classList.add("lazyloading")),e.onload=function(){"lazyloading"===e.className&&(e.classList.remove("lazyloading"),e.classList.add("lazyloaded"))})})}function i(e){var t,n=e.href;e&&n&&(e=/^https?:\/\//.test(e=n)?((t=a.createElement("a")).href=e,t.hostname):l,t=l!==e,e=a.querySelectorAll("link[href='"+n+"']"),t||!t&&-1!==n.indexOf("#")||e.length||((e=a.createElement("link")).rel="prefetch",e.href=n,a.head.appendChild(e)))}function s(){t.innerHTML=(new Date).toLocaleTimeString(["en-US"],{timeStyle:"short",timeZone:"Europe/Paris"}),setTimeout(s,1e3)}[].forEach.call(e,function(e){e.addEventListener("mouseenter",function(){i(e)},{passive:!0}),e.addEventListener("touchstart",function(){i(e)},{passive:!0})}),a.addEventListener("DOMContentLoaded",function(){setTimeout(()=>{a.documentElement&&a.documentElement.classList.remove("no-transition")},250),s()}),n=this,a.addEventListener("scroll",o),n.addEventListener("resize",o),n.addEventListener("orientationChange",o)}(window);</script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b1d98453e7be4db9be3277b6aeac4034"}'></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"74d8677e2883985e","version":"2022.8.1","r":1,"token":"d1584bef899144ceae6da087f18e2437","si":100}' crossorigin="anonymous"></script>
+</body></html>
